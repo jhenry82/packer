@@ -27,9 +27,10 @@ type config struct {
 	// This can be important for matching disk sizes to device names in Kickstart scripts,
 	// for example. maps make for a slightly prettier config syntax, but have a
 	// random iteration order which is not desirable here.
-	VMDisks       [][]string `mapstructure:"vm_disks"`
-	DiskSize      uint       `mapstructure:"disk_size"`
-	CloneTemplate string     `mapstructure:"clone_template"`
+	VMDisks       [][]string        `mapstructure:"vm_disks"`
+	DiskSize      uint              `mapstructure:"disk_size"`
+	CloneTemplate string            `mapstructure:"clone_template"`
+	VMOtherConfig map[string]string `mapstructure:"vm_other_config"`
 
 	ISOName   string `mapstructure:"iso_name"`
 	ISOSRName string `mapstructure:"iso_sr"`
@@ -79,13 +80,13 @@ func (self *Builder) Prepare(raws ...interface{}) (params []string, retErr error
 	// For backwards compatibility, allow the existing disk_size option to be passed
 	// and to override the newer vm_disks map, if it's also found
 	if self.config.DiskSize > 0 {
-		self.config.VMDisks = append ( self.config.VMDisks, []string{"Packer-disk", strconv.FormatUint(uint64(self.config.DiskSize), 10)} )
+		self.config.VMDisks = append(self.config.VMDisks, []string{"Packer-disk", strconv.FormatUint(uint64(self.config.DiskSize), 10)})
 	}
 
 	// If no disk info whatsoever is provided, fall back to the earlier standard of
 	// one 40GB volume named Packer-disk
 	if self.config.VMDisks == nil && self.config.DiskSize == 0 {
-		self.config.VMDisks = append ( self.config.VMDisks, []string{"Packer-disk", "40000"} )
+		self.config.VMDisks = append(self.config.VMDisks, []string{"Packer-disk", "40000"})
 	}
 
 	if self.config.VMMemory == 0 {
