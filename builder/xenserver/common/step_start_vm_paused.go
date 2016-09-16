@@ -24,11 +24,26 @@ func (self *StepStartVmPaused) Run(state multistep.StateBag) multistep.StepActio
 		return multistep.ActionHalt
 	}
 
-	// note that here "cd" means boot from hard drive ('c') first, then CDROM ('d')
-	err = instance.SetHVMBoot("BIOS order", "cd")
-	if err != nil {
-		ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
-		return multistep.ActionHalt
+	// If it's an HVM type VM, set boot order
+	ui.Say(fmt.Sprintf("virtualization_type is set to: %s", state.Get("virtualization_type").(string)))
+	if len(state.Get("virtualization_type").(string)) != 0 {
+		// note that here "cd" means boot from hard drive ('c') first, then CDROM ('d')
+		err = instance.SetHVMBoot("BIOS order", "cd")
+		if err != nil {
+			ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
+			return multistep.ActionHalt
+		}
+	} else {
+		err = instance.SetHVMBoot("", "")
+		if err != nil {
+			ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
+			return multistep.ActionHalt
+		}
+		err = instance.SetPVBootloader("pygrub", "")
+		if err != nil {
+			ui.Error(fmt.Sprintf("Unable to set PV bootloader: %s", err.Error()))
+			return multistep.ActionHalt
+		}
 	}
 
 	err = instance.Start(true, false)
@@ -37,7 +52,7 @@ func (self *StepStartVmPaused) Run(state multistep.StateBag) multistep.StepActio
 		return multistep.ActionHalt
 	}
 
-	err = FindResidentHost ( state, instance, uuid )
+	err = FindResidentHost(state, instance, uuid)
 	if err != nil {
 		ui.Error(fmt.Sprintf("Unable to find the host VM '%s' is on: %s", uuid, err.Error()))
 		return multistep.ActionHalt
