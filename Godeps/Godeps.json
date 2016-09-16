@@ -8,8 +8,8 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/Sirupsen/logrus",
-			"Comment": "v0.10.0-19-gf3cfb45",
-			"Rev": "f3cfb454f4c209e6668c95216c4744b8fddb2356"
+			"Comment": "v0.10.0-38-g3ec0642",
+			"Rev": "3ec0642a7fb6488f65b06f9040adc67e3990296a"
 		},
 		{
 			"ImportPath": "github.com/dylanmei/iso8601",
@@ -180,7 +180,7 @@
 		},
 		{
 			"ImportPath": "github.com/xenserver/go-xenserver-client",
-			"Rev": "42dc9035c2e805b844614741d804f308bacb7490"
+			"Rev": "86a0f30ec1588955b8e63b7b5ffbab43fc3a9ff1"
 		},
 		{
 			"ImportPath": "github.com/xenserverarmy/go-osglance/identity/v2",
@@ -218,6 +218,131 @@
 			"ImportPath": "github.com/pkg/errors",
 			"Comment": "v0.7.0-5-ga2d6902",
 			"Rev": "a2d6902c6d2a2f194eb3fb474981ab7867c81505"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/go-fs",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/go-fs/fat",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/multistep",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/hashicorp/go-multierror",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/hashicorp/go-version",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/iochan",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/mapstructure",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/mitchellh/reflectwalk",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/hashicorp/errwrap",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/golang.org/x/crypto/ssh",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/golang.org/x/crypto/curve25519",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/pkg/sftp",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/golang.org/x/crypto/ssh/agent",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/kr/fs",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/dylanmei/winrmtest",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/masterzen/winrm/winrm",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/packer-community/winrmcp/winrmcp",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/masterzen/winrm/soap",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/masterzen/xmlpath",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/satori/go.uuid",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/nu7hatch/gouuid",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/dylanmei/iso8601",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/masterzen/simplexml/dom",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/hashicorp/yamux",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
+		},
+		{
+			"ImportPath": "github.com/mitchellh/packer/vendor/github.com/ugorji/go/codec",
+			"Comment": "v0.10.1-135-g63edbd4",
+			"Rev": "63edbd40edc5a55394f8532aa9958bbe257b31b5"
 		}
 	]
 }
