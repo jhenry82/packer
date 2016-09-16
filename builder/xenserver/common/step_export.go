@@ -183,6 +183,19 @@ func (self *StepExport) Run(state multistep.StateBag) multistep.StepAction {
 				vif.Destroy()
 			}
 		}
+
+		// XXX TODO FIXME last minute, convert to PV
+		err = instance.SetHVMBoot("", "")
+		if err != nil {
+			ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
+			return multistep.ActionHalt
+		}
+		err = instance.SetPVBootloader("pygrub", "")
+		if err != nil {
+			ui.Error(fmt.Sprintf("Unable to set PV bootloader: %s", err.Error()))
+			return multistep.ActionHalt
+		}
+
 		export_url := fmt.Sprintf("https://%s/export?uuid=%s&session_id=%s",
 			client.Host,
 			instance_uuid,

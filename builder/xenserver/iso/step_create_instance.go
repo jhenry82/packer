@@ -25,6 +25,7 @@ func (self *stepCreateInstance) Run(state multistep.StateBag) multistep.StepActi
 	// Get the template to clone from
 
 	vms, err := client.GetVMByNameLabel(config.CloneTemplate)
+	ui.Say(fmt.Sprintf("Gonna fuckin clone %s", config.CloneTemplate))
 
 	switch {
 	case len(vms) == 0:
@@ -205,6 +206,8 @@ func (self *stepCreateInstance) Run(state multistep.StateBag) multistep.StepActi
 		return multistep.ActionHalt
 	}
 
+	// XXX TODO HACK FIXME
+	bootPolicy = ""
 	state.Put("virtualization_type", bootPolicy)
 
 	for index, vdis := range self.vdi {

@@ -430,7 +430,7 @@ func (self *VM) ConnectVdi(vdi *VDI, vdiType VDIType, userdevice string) (err er
 		vbd_rec["type"] = "CD"
 	case Disk:
 		vbd_rec["mode"] = "RW"
-		vbd_rec["bootable"] = false
+		vbd_rec["bootable"] = true
 		vbd_rec["unpluggable"] = false
 		vbd_rec["type"] = "Disk"
 	case Floppy:
