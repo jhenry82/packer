@@ -205,8 +205,6 @@ func (self *stepCreateInstance) Run(state multistep.StateBag) multistep.StepActi
 		return multistep.ActionHalt
 	}
 
-	state.Put("virtualization_type", bootPolicy)
-
 	// XXX TODO HACK FIXME
 	// Without this, the final VM cannot boot
 	bootPolicy = ""

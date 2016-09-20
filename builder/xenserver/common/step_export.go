@@ -190,7 +190,7 @@ func (self *StepExport) Run(state multistep.StateBag) multistep.StepAction {
 			ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
 			return multistep.ActionHalt
 		}
-		err = instance.SetPVBootloader("pygrub", "")
+		err = instance.SetPVBootloader("pygrub", "graphical utf8")
 		if err != nil {
 			ui.Error(fmt.Sprintf("Unable to set PV bootloader: %s", err.Error()))
 			return multistep.ActionHalt
