@@ -406,7 +406,7 @@ func (self *VM) SetStaticMemoryRange(min, max uint64) (err error) {
 	return
 }
 
-func (self *VM) ConnectVdi(vdi *VDI, vdiType VDIType, userdevice string) (err error) {
+func (self *VM) ConnectVdi(vdi *VDI, vdiType VDIType, userdevice string, bootable bool) (err error) {
 
 	// 1. Create a VBD
 	if userdevice == "" {
@@ -425,17 +425,17 @@ func (self *VM) ConnectVdi(vdi *VDI, vdiType VDIType, userdevice string) (err er
 	switch vdiType {
 	case CD:
 		vbd_rec["mode"] = "RO"
-		vbd_rec["bootable"] = true
+		vbd_rec["bootable"] = bootable
 		vbd_rec["unpluggable"] = false
 		vbd_rec["type"] = "CD"
 	case Disk:
 		vbd_rec["mode"] = "RW"
-		vbd_rec["bootable"] = true
+		vbd_rec["bootable"] = bootable
 		vbd_rec["unpluggable"] = false
 		vbd_rec["type"] = "Disk"
 	case Floppy:
 		vbd_rec["mode"] = "RW"
-		vbd_rec["bootable"] = false
+		vbd_rec["bootable"] = bootable
 		vbd_rec["unpluggable"] = true
 		vbd_rec["type"] = "Floppy"
 	}

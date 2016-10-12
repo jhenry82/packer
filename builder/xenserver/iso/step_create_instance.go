@@ -110,6 +110,7 @@ func (self *stepCreateInstance) Run(state multistep.StateBag) multistep.StepActi
 	for _, values := range config.VMDisks {
 		diskname := values[0]
 		disksize, _ := strconv.Atoi(values[1])
+		bootable, _ := strconv.ParseBool(values[2])
 		ui.Say(fmt.Sprintf("Creating disk %s: %dMB", diskname, disksize))
 		vdi, err := sr.CreateVdi(diskname, int64(disksize*1024*1024))
 		if err != nil {
@@ -118,7 +119,7 @@ func (self *stepCreateInstance) Run(state multistep.StateBag) multistep.StepActi
 		}
 		self.vdi = append(self.vdi, vdi)
 
-		err = instance.ConnectVdi(vdi, xsclient.Disk, "")
+		err = instance.ConnectVdi(vdi, xsclient.Disk, "", bootable)
 		if err != nil {
 			ui.Error(fmt.Sprintf("Unable to connect packer disk VDI: %s", err.Error()))
 			return multistep.ActionHalt
