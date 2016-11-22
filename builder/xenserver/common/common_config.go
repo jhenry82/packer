@@ -55,6 +55,7 @@ type CommonConfig struct {
 	KeepVM            string `mapstructure:"keep_vm"`
 	IPGetter          string `mapstructure:"ip_getter"`
 	ConvertToTemplate bool   `mapstructure:"convert_to_template"`
+	ConvertToPV       bool   `mapstructure:"convert_to_pv"`
 }
 
 func (c *CommonConfig) Prepare(ctx *interpolate.Context, pc *common.PackerConfig) []error {

@@ -3,12 +3,13 @@ package common
 import (
 	"crypto/tls"
 	"fmt"
-	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
-	xsclient "github.com/xenserver/go-xenserver-client"
 	"io"
 	"net/http"
 	"os"
+
+	"github.com/mitchellh/multistep"
+	"github.com/mitchellh/packer/packer"
+	xsclient "github.com/xenserver/go-xenserver-client"
 )
 
 type StepExport struct {
@@ -185,15 +186,17 @@ func (self *StepExport) Run(state multistep.StateBag) multistep.StepAction {
 		}
 
 		// XXX TODO FIXME last minute, convert to PV
-		err = instance.SetHVMBoot("", "")
-		if err != nil {
-			ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
-			return multistep.ActionHalt
-		}
-		err = instance.SetPVBootloader("pygrub", "")
-		if err != nil {
-			ui.Error(fmt.Sprintf("Unable to set PV bootloader: %s", err.Error()))
-			return multistep.ActionHalt
+		if config.ConvertToPV {
+			err = instance.SetHVMBoot("", "")
+			if err != nil {
+				ui.Error(fmt.Sprintf("Unable to set HVM boot params: %s", err.Error()))
+				return multistep.ActionHalt
+			}
+			err = instance.SetPVBootloader("pygrub", "")
+			if err != nil {
+				ui.Error(fmt.Sprintf("Unable to set PV bootloader: %s", err.Error()))
+				return multistep.ActionHalt
+			}
 		}
 
 		export_url := fmt.Sprintf("https://%s/export?uuid=%s&session_id=%s",
